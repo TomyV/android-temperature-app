@@ -8,6 +8,8 @@ import com.tomyv.citytemperatureapp.view.useCase.GetTemperatureUseCase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 import java.util.logging.Level.INFO
 import java.util.logging.Level.SEVERE
 import java.util.logging.Logger
@@ -37,5 +39,12 @@ class MainActivityViewModel : ViewModel() {
                 }
             })
         return temperatureLiveData
+    }
+
+    fun getCurrentTime(): MutableLiveData<String> {
+        val timeLiveData = MutableLiveData<String>()
+        val currentTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+        timeLiveData.postValue("Last updated: $currentTime")
+        return timeLiveData
     }
 }
