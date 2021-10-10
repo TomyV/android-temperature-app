@@ -1,7 +1,8 @@
-package com.tomyv.citytemperatureapp
+package com.tomyv.citytemperatureapp.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.tomyv.citytemperatureapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
