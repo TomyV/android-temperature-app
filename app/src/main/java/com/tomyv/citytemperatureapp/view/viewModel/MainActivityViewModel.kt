@@ -10,8 +10,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.util.logging.Level.INFO
-import java.util.logging.Level.SEVERE
 import java.util.logging.Logger
 
 class MainActivityViewModel : ViewModel() {
@@ -28,14 +26,14 @@ class MainActivityViewModel : ViewModel() {
                         val temperature = response.body()!!.main!!.temp
                         val temperatureResponseMessage = "Temperature in $city: $temperature°C"
                         temperatureLiveData.postValue(temperatureResponseMessage)
-                        logger.log(INFO, temperatureResponseMessage)
+                        logger.info(temperatureResponseMessage)
                     }
                 }
 
                 override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
                     val failedRequestMessage = "Failed to get temperature"
                     temperatureLiveData.postValue(failedRequestMessage)
-                    logger.log(SEVERE, failedRequestMessage)
+                    logger.severe(failedRequestMessage)
                 }
             })
         return temperatureLiveData
