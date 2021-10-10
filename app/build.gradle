@@ -19,6 +19,7 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", getBaseUrl())
+            buildConfigField("String", "API_KEY", getApiKey())
         }
         release {
             minifyEnabled false
@@ -56,4 +57,9 @@ Properties getProperties() {
 String getBaseUrl() {
     Properties properties = getProperties()
     return properties['BASE_URL']
+}
+
+String getApiKey() {
+    Properties properties = getProperties()
+    return properties['API_KEY']
 }
